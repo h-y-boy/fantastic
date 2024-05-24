@@ -1,0 +1,49 @@
+{
+  "name": "fantastic",
+  "private": true,
+  "version": "0.0.1",
+  "description": "my Electron App Description",
+  "type": "module",
+  "main":"electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "dev-electron" :"electron .",
+    "build": "vue-tsc && vite build && npx electron-builder build --win",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^30.0.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  },
+  "build": {
+    "productName": "Fantastic", 
+    "directories": {
+      "output": "appDist" 
+    },
+    "asar": true,
+    "files": [ 
+      "dist/**/*" ,
+      "electron/**/*"
+    ],
+    "mac": {
+      "target": "dmg" 
+    },
+    "win": {
+      "target": "nsis" 
+    },
+    "linux": {
+      "target": "AppImage" 
+    },
+    "nsis":{
+      "oneClick": false,
+      "deleteAppDataOnUninstall": true
+    },
+    "extends": null
+  }
+}
